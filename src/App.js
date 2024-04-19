@@ -1,24 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Movies from './Components/Movies';
+import dataList from "./Components/Movies.json"
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1 style={{
+        textAlign: "center"
+      }}>MoviesHub</h1>
+      <div style={{
+        border: "1px solid gray",
+        margin: "40px",
+        borderRadius: "20px",
+        background: "linear-gradient(black,white)"
+      }}>
+        {
+          dataList.map((data, idx) => <Movies key={idx} img={data.Images[0]} title={data.Title} />)
+        }
+
+      </div>
+
+    </>
+    
   );
 }
 
